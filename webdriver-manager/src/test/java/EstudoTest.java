@@ -3,7 +3,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.time.Duration;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,14 +24,16 @@ public class EstudoTest {
     // ANTES DO TESTE
     @BeforeAll
     public static void setUp() {
-        WebDriverManager.chromedriver().setup();
-
+//        WebDriverManager.chromedriver().setup();
+        //WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.edgedriver().setup();
     }
 
     @BeforeEach
     public void padraoCarregamento() {
-       driver = new ChromeDriver();
-
+       //driver = new ChromeDriver();
+        //driver = new FirefoxDriver();
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         driver.get("https://front.serverest.dev/login");
@@ -47,8 +52,8 @@ public class EstudoTest {
     public void testCadastroSimplesComDadosValidos() {
         assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
         driver.findElement(By.linkText("Cadastre-se")).click();
-        driver.findElement(By.id("nome")).sendKeys("Ulisses20");
-        driver.findElement(By.id("email")).sendKeys("evertont20@uol.com.br");
+        driver.findElement(By.id("nome")).sendKeys("Ulisses21");
+        driver.findElement(By.id("email")).sendKeys("evertont21@uol.com.br");
         driver.findElement(By.id("password")).sendKeys("12346");
         driver.findElement(By.id("administrador")).click();
         assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(), "Texto esperado 'Cadastrar', mas foi exibido outro texto.");
