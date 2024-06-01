@@ -4,9 +4,6 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.edge.EdgeDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.time.Duration;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -41,7 +38,6 @@ public class EstudoTest {
     // DEPOIS DO TESTE
     @AfterEach
     public void tearDown() {
-        //System.out.println("Teste Finalizado");
           driver.quit();
     }
 
@@ -51,8 +47,8 @@ public class EstudoTest {
     public void testCadastroSimplesComDadosValidos() {
         assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
         driver.findElement(By.linkText("Cadastre-se")).click();
-        driver.findElement(By.id("nome")).sendKeys("Ulisses23");
-        driver.findElement(By.id("email")).sendKeys("evertont23@uol.com.br");
+        driver.findElement(By.id("nome")).sendKeys("Ulisses25");
+        driver.findElement(By.id("email")).sendKeys("evertont25@uol.com.br");
         driver.findElement(By.id("password")).sendKeys("12346");
         driver.findElement(By.id("administrador")).click();
         assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(), "Texto esperado 'Cadastrar', mas foi exibido outro texto.");
