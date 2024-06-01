@@ -39,4 +39,8 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### IntelliJ ###
+### SpecFlow template
+# Feature Files
+*.feature.cs
+*.feature.xlsx.*
+

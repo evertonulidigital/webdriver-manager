@@ -18,8 +18,6 @@ public class EstudoTest {
     // ATRIBUTOS
     private static WebDriver driver;
 
-
-
     // ANTES DO TESTE
     @BeforeAll
     public static void setUp() {
