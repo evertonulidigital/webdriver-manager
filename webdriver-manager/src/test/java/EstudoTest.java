@@ -29,7 +29,8 @@ public class EstudoTest {
 
     @BeforeEach
     public void padraoCarregamento() {
-        driver = new ChromeDriver();
+       driver = new ChromeDriver();
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         driver.get("https://front.serverest.dev/login");
@@ -38,19 +39,18 @@ public class EstudoTest {
     // DEPOIS DO TESTE
     @AfterEach
     public void tearDown() {
-        System.out.println("Teste Finalizado");
+        //System.out.println("Teste Finalizado");
           driver.quit();
     }
 
-    // TESTE 1
     @Test
     @Order(1)
     @DisplayName("Teste realizado no caminho feliz com sucesso")
     public void testCadastroSimplesComDadosValidos() {
         assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
         driver.findElement(By.linkText("Cadastre-se")).click();
-        driver.findElement(By.id("nome")).sendKeys("Ulisses1965");
-        driver.findElement(By.id("email")).sendKeys("evertont19659@uol.com.br");
+        driver.findElement(By.id("nome")).sendKeys("Ulisses20");
+        driver.findElement(By.id("email")).sendKeys("evertont20@uol.com.br");
         driver.findElement(By.id("password")).sendKeys("12346");
         driver.findElement(By.id("administrador")).click();
         assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(), "Texto esperado 'Cadastrar', mas foi exibido outro texto.");
@@ -58,7 +58,6 @@ public class EstudoTest {
         assertEquals("Cadastro realizado com sucesso", driver.findElement(By.cssSelector("a.alert-link")).getText(), "Texto esperado 'Cadastro realizado com sucesso', mas foi exibido outro texto");
     }
 
-    // TESTE 2
     @Test
     @Order(2)
     @DisplayName("Teste realizado com mensagem pra email ja existente")
