@@ -11,7 +11,7 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 ### 📋 Pré-requisitos
 
 Ser iniciante onde partiremos do absoluto ZERO até uma automação com webdrivermanager, do selenium.
-
+Melhorias em repositorio
 ```
 Estudo de caso de um site de domínio público
 ```
